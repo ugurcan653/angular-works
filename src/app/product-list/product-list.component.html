@@ -1,0 +1,11 @@
+
+  <ul class="list-group" *ngFor="let product of products; index as productId">
+    <li class="list-group-item" style="text-align: center">
+      <h3 class="text-primary"><a [title]="product.name+' details'"
+          [routerLink]="['/products',productId]">{{product.name}}</a></h3>
+      <p *ngIf="product.description">{{product.description}}</p>
+      <button (click)="share()" class="btn btn-primary">Share </button>
+      <app-product-alerts [product]="product" (notify)="onNotify()">
+      </app-product-alerts>
+    </li>
+  </ul>
